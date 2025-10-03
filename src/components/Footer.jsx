@@ -83,7 +83,7 @@ const Footer = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex flex-col items-center group transition-all duration-700 ease-out hover-glow ${
+                  className={`flex flex-col items-center group transition-all duration-700 ease-out hover-glow no-underline ${
                     inView
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10"

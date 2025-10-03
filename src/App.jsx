@@ -11,14 +11,9 @@ import "./index.css";
 
 const AnimatedText = ({ text }) => {
   return (
-    <>
-      {text.split(" ").map((word, index) => (
-        <span key={index} className="relative inline-block group">
-          {word}{" "}
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
-        </span>
-      ))}
-    </>
+    <span className="text-xl font-bold font-futuristic text-white hover:text-primary-500 transition-colors duration-300 cursor-pointer">
+      {text}
+    </span>
   );
 };
 
@@ -113,7 +108,7 @@ function App() {
       >
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer"
             onClick={scrollToTop}
           >
             <img
@@ -121,9 +116,7 @@ function App() {
               alt="Logo"
               className="w-10 h-10 rounded-full hover-glow"
             />
-            <span className="text-xl font-bold text-white font-futuristic">
-              <AnimatedText text="CodeWithClarence" />
-            </span>
+            <AnimatedText text="CodeWithClarence" />
           </div>
 
           <div
@@ -147,10 +140,10 @@ function App() {
             ].map((item) => (
               <button
                 key={item.id}
-                className={`capitalize transition-all font-futuristic hover-glow ${
+                className={`capitalize font-futuristic hover-glow transition-colors duration-300 ${
                   activeSection === item.id
                     ? "text-primary-500"
-                    : "text-white hover:text-primary-400"
+                    : "text-white hover:text-primary-500"
                 }`}
                 onClick={(e) =>
                   item.id === "home"
@@ -158,16 +151,7 @@ function App() {
                     : scrollToSection(item.id, e)
                 }
               >
-                <span className="relative group">
-                  {item.label}
-                  <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-primary-500 transition-all duration-300 ${
-                      activeSection === item.id
-                        ? "w-full"
-                        : "w-0 group-hover:w-full"
-                    }`}
-                  ></span>
-                </span>
+                {item.label}
               </button>
             ))}
           </div>
@@ -188,10 +172,10 @@ function App() {
             ].map((item) => (
               <button
                 key={item.id}
-                className={`w-full text-left px-5 py-3 capitalize transition-all font-futuristic hover:bg-dark-700 first:rounded-t-lg last:rounded-b-lg ${
+                className={`w-full text-left px-5 py-3 capitalize font-futuristic first:rounded-t-lg last:rounded-b-lg transition-colors duration-300 ${
                   activeSection === item.id
                     ? "text-primary-500"
-                    : "text-white hover:text-primary-400"
+                    : "text-white hover:text-primary-500"
                 }`}
                 onClick={(e) =>
                   item.id === "home"

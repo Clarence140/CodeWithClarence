@@ -96,3 +96,4 @@ const SuccessModal = ({ isOpen, onClose }) => {
 };
 
 export default SuccessModal;
+

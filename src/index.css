@@ -8,6 +8,15 @@
   text-decoration: none;
 }
 
+/* Ensure no underlines on links */
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
 body {
   scroll-behavior: smooth;
   overflow-x: hidden;

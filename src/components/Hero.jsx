@@ -61,7 +61,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 href="#projects"
-                className="px-6 sm:px-8 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded transition-all duration-300 hover-glow font-futuristic tracking-wider animate-fade delay-200 flex items-center justify-center text-sm sm:text-base"
+                className="px-6 sm:px-8 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded transition-all duration-300 hover-glow font-futuristic tracking-wider animate-fade delay-200 flex items-center justify-center text-sm sm:text-base no-underline hover:text-white"
               >
                 VIEW PROJECTS
               </a>
@@ -123,11 +123,15 @@ const Hero = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-dark-700/50 hover:bg-dark-700 rounded transition-all hover-glow animate-fade"
+                  className="flex items-center gap-3 p-3 bg-dark-700/50 hover:bg-primary-500 hover:text-white rounded transition-all hover-glow animate-fade no-underline"
                   style={{ animationDelay: `${index * 100 + 200}ms` }}
                 >
-                  <span className="text-primary-500">{item.icon}</span>
-                  <span>{item.label}</span>
+                  <span className="text-primary-500 group-hover:text-white transition-colors">
+                    {item.icon}
+                  </span>
+                  <span className="text-gray-300 hover:text-white transition-colors">
+                    {item.label}
+                  </span>
                 </a>
               ))}
             </div>

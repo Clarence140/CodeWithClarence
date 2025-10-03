@@ -12,7 +12,6 @@ const projectsData = [
     techStack: ["HTML", "CSS", "JavaScript", "Canva", "Photoshop"],
     liveLink: "https://metro-jobs.vercel.app/",
     githubLink: "https://github.com/Clarence140/MetroJobsss",
-    category: "major",
     images: [
       "/assets/metrojobs/MetroJobsHome.png",
       "/assets/metrojobs/MetroJobsAboutUS.png",
@@ -29,7 +28,6 @@ const projectsData = [
     techStack: ["HTML", "CSS", "JavaScript", "Firebase", "Canva", "Figma"],
     liveLink: "#",
     githubLink: "https://github.com/Clarence140/PAMCares-FINAL",
-    category: "major",
     images: [
       "/assets/PAMCares/PamCaresLogin.PNG",
       "/assets/PAMCares/PamCaresAdmin.PNG",
@@ -46,7 +44,6 @@ const projectsData = [
     techStack: ["React", "Vite", "Javascript", "Photoshop"],
     liveLink: "https://clarence-cyling-web.vercel.app/",
     githubLink: "https://github.com/Clarence140/ClarenceCylingWeb",
-    category: "major",
     images: [
       "/assets/ClarenceCycling/ClarenceCyclingHero.PNG",
       "/assets/ClarenceCycling/ClarenceCyclingLUNA.PNG",
@@ -57,14 +54,27 @@ const projectsData = [
   },
   {
     id: 4,
-    title: "Portfolio Website Template",
+    title: "RescueNet – Emergency Response Platform",
     description:
-      "A responsive portfolio website template built with modern web technologies. Features smooth animations, mobile-first design, and clean typography. Perfect for showcasing personal projects and professional experience. Includes contact forms, project galleries, and social media integration.",
-    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    liveLink: "#",
-    githubLink: "#",
-    category: "small",
-    images: ["/images/portfolio/template.png"],
+      "RescueNet is a comprehensive emergency response platform for Metro Manila residents, providing instant access to 100+ location-based emergency hotlines across 5 categories: Fire, Flood/Disaster, Crime, Health/Medical, and Power & Utilities. It features district-specific services covering Quezon City and Manila City, role-based action plans for different emergency scenarios, and an intuitive mobile-first interface. This community-focused platform addresses a critical need: reducing emergency response time by centralizing essential contacts and guidance, potentially saving lives during disasters.",
+    techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Radix UI"],
+    liveLink: "https://rescue-net.vercel.app/",
+    githubLink: "https://github.com/Clarence140/RescueNet",
+    images: [
+      "/assets/RescueNet/1.png",
+      "/assets/RescueNet/2.png",
+      "/assets/RescueNet/3.png",
+      "/assets/RescueNet/FL1.png",
+      "/assets/RescueNet/FL2.png",
+      "/assets/RescueNet/F1.png",
+      "/assets/RescueNet/F2.png",
+      "/assets/RescueNet/C1.png",
+      "/assets/RescueNet/C2.png",
+      "/assets/RescueNet/H1.png",
+      "/assets/RescueNet/H2.png",
+      "/assets/RescueNet/P1.png",
+      "/assets/RescueNet/P2.png",
+    ],
   },
 ];
 
@@ -78,7 +88,6 @@ const Projects = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
-  const [activeFilter, setActiveFilter] = useState("major");
   const [currentPage, setCurrentPage] = useState(1);
   const [projectsPerPage] = useState(3);
   const imgRef = useRef(null);
@@ -130,21 +139,13 @@ const Projects = () => {
     };
   }, []);
 
-  const filteredProjects = projectsData.filter(
-    (project) => project.category === activeFilter
-  );
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = filteredProjects.slice(
+  const currentProjects = projectsData.slice(
     indexOfFirstProject,
     indexOfLastProject
   );
-  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
-
-  const handleFilterChange = (filter) => {
-    setActiveFilter(filter);
-    setCurrentPage(1);
-  };
+  const totalPages = Math.ceil(projectsData.length / projectsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -262,31 +263,6 @@ const Projects = () => {
           </h2>
         </div>
 
-        <div className="flex justify-center mb-8">
-          <div className="flex bg-dark-800/50 rounded-lg border border-dark-700/50 p-1">
-            <button
-              onClick={() => handleFilterChange("major")}
-              className={`px-6 py-2 rounded-md font-futuristic tracking-wider transition-all duration-300 ${
-                activeFilter === "major"
-                  ? "bg-primary-500 text-white"
-                  : "text-gray-300 hover:text-white hover:bg-dark-700/50"
-              }`}
-            >
-              MAJOR PROJECTS
-            </button>
-            <button
-              onClick={() => handleFilterChange("small")}
-              className={`px-6 py-2 rounded-md font-futuristic tracking-wider transition-all duration-300 ${
-                activeFilter === "small"
-                  ? "bg-primary-500 text-white"
-                  : "text-gray-300 hover:text-white hover:bg-dark-700/50"
-              }`}
-            >
-              SMALL PROJECTS
-            </button>
-          </div>
-        </div>
-
         <div className="space-y-8 sm:space-y-12 max-w-7xl mx-auto">
           {currentProjects.map((project, projectIndex) => (
             <div
@@ -365,7 +341,7 @@ const Projects = () => {
                   {project.liveLink && project.liveLink !== "#" && (
                     <a
                       href={project.liveLink}
-                      className="w-full sm:w-auto px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base"
+                      className="w-full sm:w-auto px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline hover:text-white"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -375,7 +351,7 @@ const Projects = () => {
                   {project.liveLink === "#" && (
                     <a
                       href="#"
-                      className="w-full sm:w-auto px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base"
+                      className="w-full sm:w-auto px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline hover:text-white"
                       onClick={(e) => e.preventDefault()}
                     >
                       LIVE PREVIEW
@@ -392,7 +368,7 @@ const Projects = () => {
                   {project.githubLink && project.githubLink !== "#" && (
                     <a
                       href={project.githubLink}
-                      className="w-full sm:w-auto px-6 py-2 border-2 border-primary-500 text-primary-500 hover:bg-primary-500/10 rounded transition-all duration-300 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base"
+                      className="w-full sm:w-auto px-6 py-2 border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white rounded transition-all duration-300 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
