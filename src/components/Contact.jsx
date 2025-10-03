@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import SuccessModal from "./SuccessModal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +10,9 @@ const Contact = () => {
     email: "",
     message: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [charCount, setCharCount] = useState(0);
 
   const { ref: sectionRef, inView: sectionInView } = useInView({
@@ -46,16 +49,43 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
-    setCharCount(0);
+    setIsLoading(true);
+    setSubmitError("");
 
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 5000);
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append(
+        "access_key",
+        "044e9a01-87ea-4c42-abed-3e8e47acb452"
+      );
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("message", formData.message);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Message sent successfully:", result);
+        setFormData({ name: "", email: "", message: "" });
+        setCharCount(0);
+        setShowSuccessModal(true);
+      } else {
+        console.log("Error", result);
+        setSubmitError(result.message || "Failed to send message");
+      }
+    } catch (error) {
+      console.error("Message sending failed:", error);
+      setSubmitError("Failed to send message. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -152,14 +182,45 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="px-8 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 font-futuristic tracking-wider flex items-center justify-center"
+              disabled={isLoading}
+              className={`px-8 py-3 text-white font-medium rounded transition-all duration-300 font-futuristic tracking-wider flex items-center justify-center ${
+                isLoading
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-primary-500 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-500/20"
+              }`}
             >
-              SEND MESSAGE
+              {isLoading ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  SENDING...
+                </>
+              ) : (
+                "SEND MESSAGE"
+              )}
             </button>
 
-            {isSubmitted && (
-              <div className="mt-4 p-3 bg-green-600/20 border border-green-500/50 rounded text-green-300 text-center animate-fade">
-                Thank you! Your message has been sent.
+            {submitError && (
+              <div className="mt-4 p-3 bg-red-600/20 border border-red-500/50 rounded text-red-300 text-center animate-fade">
+                {submitError}
               </div>
             )}
           </form>
@@ -178,6 +239,12 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+      />
     </section>
   );
 };
