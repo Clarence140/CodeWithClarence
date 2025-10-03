@@ -8,7 +8,7 @@ const projectsData = [
     id: 1,
     title: "MetroJobs Website Rework (OJT)",
     description:
-      "MetroJobs is a recruitment and HR solutions website designed to connect job seekers with top companies across various industries. The site features job listings, company information, and branch details, all presented in a clean and user-friendly layout. It was built using HTML for structure, CSS for styling, and JavaScript for interactivity. Canva was used to design animated GIFs, while Photoshop enhanced images for a more polished visual presentation.",
+      "A recruitment and HR solutions website connecting job seekers with top companies across various industries. Features comprehensive job listings, detailed company information, and branch locations in a clean, user-friendly interface. Built with HTML, CSS, and JavaScript for seamless interactivity. Enhanced with Canva-designed animated GIFs and Photoshop-optimized images for professional visual presentation. Developed during on-the-job training to deliver modern recruitment solutions.",
     techStack: ["HTML", "CSS", "JavaScript", "Canva", "Photoshop"],
     liveLink: "https://metro-jobs.vercel.app/",
     githubLink: "https://github.com/Clarence140/MetroJobsss",
@@ -24,7 +24,7 @@ const projectsData = [
     id: 2,
     title: "PAMCares – Online Pet Healthcare System (Capstone Project)",
     description:
-      "PAMCares is a proposed web-based online pet healthcare management system developed for the Philippine Animal Medical Center (PAMC) in Quezon City. It is designed to enhance accessibility, efficiency, and connectivity between pet owners and veterinary professionals. The system features online appointment booking, seamless access to pet medical records, and teleconsultation services. Built using HTML, CSS, and Vanilla JavaScript, with Firebase for backend services such as database management and authentication. Visual Studio Code was used for development, while Figma and Canva supported the UI design and visual assets.",
+      "A comprehensive web-based pet healthcare management system for the Philippine Animal Medical Center (PAMC) in Quezon City. Enhances accessibility and connectivity between pet owners and veterinary professionals through online appointment booking, digital medical records access, and teleconsultation services. Developed as a capstone project using HTML, CSS, and Vanilla JavaScript with Firebase handling database management and authentication. UI/UX designed with Figma and Canva for intuitive user experience.",
     techStack: ["HTML", "CSS", "JavaScript", "Firebase", "Canva", "Figma"],
     liveLink: "#",
     githubLink: "https://github.com/Clarence140/PAMCares-FINAL",
@@ -40,7 +40,7 @@ const projectsData = [
     id: 3,
     title: "Clarence Cycling Adventures Website (Under Development)",
     description:
-      "Clarence Cycling Adventures is a personal cycling website created to document the journeys of LUNA, a custom-built road bike. It includes sections such as Meet LUNA, Adventures, Gallery, Bike Specs, and Contact. Built with React and Vite, the site offers a clean and responsive user interface. JavaScript handles all interactive features, while Photoshop was used to enhance the visuals. This project combines both web development and cycling passion into one meaningful digital space.",
+      "A personal cycling website documenting the journeys of LUNA, a custom-built road bike. Features dedicated sections including Meet LUNA, Adventures Gallery, Bike Specifications, and Contact. Built with modern React and Vite for optimal performance and clean, responsive UI. JavaScript powers all interactive features while Photoshop enhances visual aesthetics. This project beautifully merges web development expertise with cycling passion, creating an engaging digital showcase for cycling enthusiasts.",
     techStack: ["React", "Vite", "Javascript", "Photoshop"],
     liveLink: "https://clarence-cyling-web.vercel.app/",
     githubLink: "https://github.com/Clarence140/ClarenceCylingWeb",
@@ -56,7 +56,7 @@ const projectsData = [
     id: 4,
     title: "RescueNet – Emergency Response Platform",
     description:
-      "RescueNet is a comprehensive emergency response platform for Metro Manila residents, providing instant access to 100+ location-based emergency hotlines across 5 categories: Fire, Flood/Disaster, Crime, Health/Medical, and Power & Utilities. It features district-specific services covering Quezon City and Manila City, role-based action plans for different emergency scenarios, and an intuitive mobile-first interface. This community-focused platform addresses a critical need: reducing emergency response time by centralizing essential contacts and guidance, potentially saving lives during disasters.",
+      "A life-saving emergency response platform for Metro Manila residents providing instant access to 100+ location-based emergency hotlines across five critical categories: Fire, Flood/Disaster, Crime, Health/Medical, and Power & Utilities. Features district-specific services for Quezon City and Manila City, role-based action plans, and intuitive mobile-first design. Built with React, Vite, Tailwind CSS, Framer Motion, and Radix UI. This community-focused platform reduces emergency response time by centralizing essential contacts and guidance.",
     techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Radix UI"],
     liveLink: "https://rescue-net.vercel.app/",
     githubLink: "https://github.com/Clarence140/RescueNet",
@@ -90,6 +90,7 @@ const Projects = () => {
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const [currentPage, setCurrentPage] = useState(1);
   const [projectsPerPage] = useState(3);
+  const [isPageChanging, setIsPageChanging] = useState(false);
   const imgRef = useRef(null);
   const modalRef = useRef(null);
 
@@ -148,7 +149,29 @@ const Projects = () => {
   const totalPages = Math.ceil(projectsData.length / projectsPerPage);
 
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    if (pageNumber === currentPage || pageNumber < 1 || pageNumber > totalPages)
+      return;
+
+    setIsPageChanging(true);
+
+    // Small delay for smooth transition
+    setTimeout(() => {
+      setCurrentPage(pageNumber);
+      setIsPageChanging(false);
+
+      // Scroll to top of projects section smoothly
+      const projectsSection = document.getElementById("projects");
+      if (projectsSection) {
+        const offset = 80; // offset for fixed header if any
+        const elementPosition = projectsSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 300);
   };
 
   const openModal = (imageSrc, projectId, imgIndex) => {
@@ -263,7 +286,11 @@ const Projects = () => {
           </h2>
         </div>
 
-        <div className="space-y-8 sm:space-y-12 max-w-7xl mx-auto">
+        <div
+          className={`space-y-8 sm:space-y-12 max-w-7xl mx-auto transition-opacity duration-300 ${
+            isPageChanging ? "opacity-0" : "opacity-100"
+          }`}
+        >
           {currentProjects.map((project, projectIndex) => (
             <div
               key={project.id}
@@ -317,27 +344,26 @@ const Projects = () => {
               </div>
 
               <div className="xl:w-1/2 flex flex-col">
-                <div className="mb-4 sm:mb-6">
+                <div className="flex-grow">
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4 font-futuristic tracking-wider">
                     {project.title}
                   </h3>
-                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 sm:px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-xs sm:text-sm"
+                        className="px-2 sm:px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-xs sm:text-sm font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
+                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-6">
+                    {project.description}
+                  </p>
                 </div>
 
-                <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-6 sm:mb-8 flex-grow leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-col sm:flex-row flex-wrap gap-3 items-center sm:items-start">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 mt-4">
                   {project.liveLink && project.liveLink !== "#" && (
                     <a
                       href={project.liveLink}
@@ -398,23 +424,47 @@ const Projects = () => {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center mt-8">
-            <div className="flex gap-2">
+          <div className="flex justify-center mt-12 sm:mt-16">
+            <div className="flex gap-3 items-center">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className={`px-4 py-2 rounded-lg font-futuristic tracking-wider transition-all duration-300 ${
+                  currentPage === 1
+                    ? "bg-dark-800/30 text-gray-600 cursor-not-allowed"
+                    : "bg-dark-800/50 text-gray-300 hover:bg-primary-500 hover:text-white border border-dark-700/50"
+                }`}
+              >
+                ← PREV
+              </button>
+
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                 (page) => (
                   <button
                     key={page}
                     onClick={() => handlePageChange(page)}
-                    className={`px-4 py-2 rounded font-futuristic tracking-wider transition-all duration-300 ${
+                    className={`px-5 py-2 rounded-lg font-futuristic tracking-wider transition-all duration-300 ${
                       currentPage === page
-                        ? "bg-primary-500 text-white"
-                        : "bg-dark-800/50 text-gray-300 hover:bg-dark-700/50 hover:text-white border border-dark-700/50"
+                        ? "bg-primary-500 text-white shadow-lg shadow-primary-500/30 scale-110"
+                        : "bg-dark-800/50 text-gray-300 hover:bg-dark-700 hover:text-white border border-dark-700/50 hover:border-primary-500/50"
                     }`}
                   >
                     {page}
                   </button>
                 )
               )}
+
+              <button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className={`px-4 py-2 rounded-lg font-futuristic tracking-wider transition-all duration-300 ${
+                  currentPage === totalPages
+                    ? "bg-dark-800/30 text-gray-600 cursor-not-allowed"
+                    : "bg-dark-800/50 text-gray-300 hover:bg-primary-500 hover:text-white border border-dark-700/50"
+                }`}
+              >
+                NEXT →
+              </button>
             </div>
           </div>
         )}

@@ -25,9 +25,23 @@ function App() {
   const [scrolling, setScrolling] = useState(false);
   const scrollTimeout = useRef(null);
 
+  // Scroll to top on mount and refresh
   useEffect(() => {
+    // Force scroll to top immediately
+    window.history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
     setActiveSection("home");
+
+    // Also reset on page unload
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
 
   useEffect(() => {
