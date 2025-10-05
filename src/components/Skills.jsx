@@ -61,14 +61,14 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className={`p-4 sm:p-6 bg-dark-800/50 border border-dark-700/50 rounded-xl backdrop-blur-sm flex flex-col items-center transition-all duration-700 ease-out hover-glow ${
+              className={`p-4 sm:p-6 bg-dark-800/50 border border-dark-700/50 rounded-xl backdrop-blur-sm flex flex-col items-center transition-all duration-300 ease-out hover-glow cursor-pointer ${
                 sectionInView
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="text-3xl sm:text-4xl lg:text-5xl text-primary-500 mb-2 sm:mb-3">
+              <div className="text-3xl sm:text-4xl lg:text-5xl text-primary-500 mb-2 sm:mb-3 transition-transform duration-300">
                 {skill.icon}
               </div>
               <h3 className="text-sm sm:text-base lg:text-lg font-medium text-white font-futuristic tracking-wider text-center">

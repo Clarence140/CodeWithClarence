@@ -8,6 +8,11 @@
   text-decoration: none;
 }
 
+/* Smooth scrolling for entire page */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Ensure no underlines on links */
 a {
   text-decoration: none !important;
@@ -29,7 +34,10 @@ body {
 }
 
 .hover-glow:hover {
-  filter: brightness(110%) drop-shadow(0 0 8px rgba(255, 0, 0, 0.3));
+  transform: translateY(-5px) scale(1.05);
+  filter: brightness(120%);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3), 0 0 20px rgba(255, 0, 0, 0.2);
+  border-color: rgba(255, 0, 0, 0.5);
 }
 
 /* Hamburger Menu Animation */

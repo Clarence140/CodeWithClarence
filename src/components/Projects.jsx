@@ -76,6 +76,36 @@ const projectsData = [
       "/assets/RescueNet/P2.png",
     ],
   },
+  {
+    id: 5,
+    title: "PocketMart – Digital Sari-Sari Store Platform (Under Development)",
+    description:
+      "A comprehensive e-commerce platform digitizing traditional Filipino sari-sari stores, bridging neighborhood convenience with modern online shopping. Features dual-portal architecture with customer storefront for seamless browsing, reservations, and purchases, plus robust admin dashboard for inventory management, order processing, sales analytics, and user administration. Built with cutting-edge Next.js 15, React 19, and Tailwind CSS v4. Empowers local Filipino store owners to thrive digitally while preserving community shopping traditions.",
+    techStack: [
+      "Next.js 15",
+      "React 19",
+      "Tailwind CSS v4",
+      "Framer Motion",
+      "Lucide React",
+    ],
+    liveLink: "https://pocket-mart-v2.vercel.app/",
+    githubLink: "https://github.com/Clarence140/PocketMartV2",
+    images: [
+      "/assets/PocketMart/P1Landing.png",
+      "/assets/PocketMart/user1.png",
+      "/assets/PocketMart/user2.png",
+      "/assets/PocketMart/user3.png",
+      "/assets/PocketMart/user4.png",
+      "/assets/PocketMart/user5.png",
+      "/assets/PocketMart/user6.png",
+      "/assets/PocketMart/admin1.png",
+      "/assets/PocketMart/admin2.png",
+      "/assets/PocketMart/admin3.png",
+      "/assets/PocketMart/admin4.png",
+      "/assets/PocketMart/admin5.png",
+      "/assets/PocketMart/admin6.png",
+    ],
+  },
 ];
 
 const Projects = () => {
