@@ -106,6 +106,20 @@ const projectsData = [
       "/assets/PocketMart/admin6.png",
     ],
   },
+  {
+    id: 6,
+    title: "Productivity Tools Suite – Boost Your Workflow",
+    description:
+      "A comprehensive web application featuring six privacy-focused productivity tools: professional FlowDoc Generator with 36+ industry-standard symbols, OCR text extraction supporting 100+ languages, real-time word counter with reading estimates, email-to-Markdown formatter, random spin-wheel picker, and Markdown-to-Word converter. Features full-screen visualization, zoom controls, parallel processing diagrams, and grouping capabilities. All processing happens client-side ensuring complete data privacy with zero server uploads.",
+    techStack: ["Next.js", "Tailwind CSS", "Mermaid.js", "Tesseract.js"],
+    liveLink: "https://productivity-tools-suite.vercel.app/",
+    githubLink: "https://github.com/Clarence140/Productivity-Tools-Suite",
+    images: [
+      "/assets/ProductivityTools/1.png",
+      "/assets/ProductivityTools/2.png",
+      "/assets/ProductivityTools/3.png",
+    ],
+  },
 ];
 
 const Projects = () => {
