@@ -120,6 +120,20 @@ const projectsData = [
       "/assets/ProductivityTools/3.png",
     ],
   },
+  {
+    id: 7,
+    title: "Project Management System (Under Development)",
+    description:
+      "A role-based platform for managing projects, tasks, and team collaboration. Features include task assignment and tracking, Kanban boards, real-time activity logs, file sharing, comments and mentions, status updates, and member dashboards. Organized dashboards for Admin, PM, and Member roles with role-based access controls, progress tracking, and project reporting. Built with responsive design and dynamic state handling.",
+    techStack: ["Next.js", "React", "JavaScript", "Tailwind CSS"],
+    liveLink: "https://project-management-eta-blond.vercel.app/login",
+    githubLink: "https://github.com/Clarence140/Project-Management",
+    images: [
+      "/assets/ProjectManagement/prjctman1.png",
+      "/assets/ProjectManagement/prjctman2.png",
+      "/assets/ProjectManagement/prjctman3.png",
+    ],
+  },
 ];
 
 const Projects = () => {
