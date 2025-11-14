@@ -32,7 +32,7 @@ const Hero = () => {
             <img
               src="/Logos/ProfilePic.png"
               alt="Clarence Sumagang"
-              className="w-64 h-64 sm:w-80 sm:h-80 lg:w-full lg:h-auto max-w-md rounded-lg object-cover hover-glow"
+              className="w-64 h-64 sm:w-80 sm:h-80 lg:w-full lg:h-auto max-w-md rounded-lg object-cover"
             />
           </div>
 

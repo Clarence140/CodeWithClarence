@@ -16,6 +16,9 @@ import {
   SiCanva,
   SiAdobephotoshop,
   SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiNextdotjs,
 } from "react-icons/si";
 
 const Skills = () => {
@@ -29,6 +32,9 @@ const Skills = () => {
     { name: "CSS", icon: <FaCss3Alt /> },
     { name: "JavaScript", icon: <FaJs /> },
     { name: "React", icon: <FaReact /> },
+    { name: "Next.js", icon: <SiNextdotjs /> },
+    { name: "Node.js", icon: <SiNodedotjs /> },
+    { name: "Express.js", icon: <SiExpress /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss /> },
     { name: "Git", icon: <FaGitAlt /> },
     { name: "GitHub", icon: <FaGithub /> },
