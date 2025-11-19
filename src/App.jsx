@@ -154,8 +154,10 @@ function App() {
             ].map((item) => (
               <button
                 key={item.id}
-                className={`capitalize font-futuristic ${
-                  activeSection === item.id ? "text-primary-500" : "text-white"
+                className={`capitalize font-futuristic transition-colors duration-300 ${
+                  activeSection === item.id
+                    ? "text-primary-500"
+                    : "text-white hover:text-primary-500"
                 }`}
                 onClick={(e) =>
                   item.id === "home"
@@ -184,8 +186,10 @@ function App() {
             ].map((item) => (
               <button
                 key={item.id}
-                className={`w-full text-left px-5 py-3 capitalize font-futuristic first:rounded-t-lg last:rounded-b-lg ${
-                  activeSection === item.id ? "text-primary-500" : "text-white"
+                className={`w-full text-left px-5 py-3 capitalize font-futuristic first:rounded-t-lg last:rounded-b-lg transition-colors duration-300 ${
+                  activeSection === item.id
+                    ? "text-primary-500"
+                    : "text-white hover:text-primary-500"
                 }`}
                 onClick={(e) =>
                   item.id === "home"
