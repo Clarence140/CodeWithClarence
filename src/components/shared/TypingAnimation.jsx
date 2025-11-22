@@ -40,4 +40,3 @@ const TypingAnimation = ({ text, speed = 100, delay = 500 }) => {
 
 export default TypingAnimation;
 
-

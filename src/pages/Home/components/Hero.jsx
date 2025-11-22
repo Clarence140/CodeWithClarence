@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
-import TypingAnimation from "./TypingAnimation";
+import TypingAnimation from "../../../components/shared/TypingAnimation";
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
@@ -60,7 +60,7 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="#projects"
+                href="/projects"
                 className="px-6 sm:px-8 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded transition-all duration-300 hover-glow font-futuristic tracking-wider animate-fade delay-200 flex items-center justify-center text-sm sm:text-base no-underline hover:text-white"
               >
                 VIEW PROJECTS
@@ -143,3 +143,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

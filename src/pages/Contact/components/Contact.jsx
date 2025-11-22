@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import SuccessModal from "./SuccessModal";
+import SuccessModal from "../../../components/shared/SuccessModal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -250,3 +250,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
