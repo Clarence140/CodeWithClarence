@@ -61,7 +61,7 @@ const Hero = () => {
                 className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-gradient-to-tr from-neon-lime to-electric-chartreuse text-gray-900 font-semibold rounded-xl hover:from-neon-lime/90 hover:to-electric-chartreuse/90 hover:shadow-lg hover:shadow-neon-lime/30 hover:scale-105 transition-all duration-300 shadow-xl no-underline text-base"
               >
                 <FaFolderOpen className="mr-2" size={18} />
-                View My Portfolio
+                View Projects
               </a>
 
               {/* Professional Experiences Button (Secondary) */}
