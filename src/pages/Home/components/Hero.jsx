@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
+import { useState } from "react";
+import { FaFacebook, FaLinkedin, FaGithub, FaBriefcase, FaFolderOpen } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
-import TypingAnimation from "../../../components/shared/TypingAnimation";
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
@@ -22,60 +21,70 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center py-20 bg-dark-900"
     >
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          <div
-            className={`w-full lg:w-1/2 flex justify-center transition-all duration-700 ease-in-out ${
-              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <img
-              src="/Logos/ProfilePic.png"
-              alt="Clarence Sumagang"
-              className="w-64 h-64 sm:w-80 sm:h-80 lg:w-full lg:h-auto max-w-md rounded-lg object-cover"
-            />
+      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Left Column: Circular Image (lg:col-span-5) */}
+          <div className={`lg:col-span-5 flex justify-center lg:justify-start lg:items-start transition-all duration-700 ease-in-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}>
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+              <img
+                src="/Logos/ProfilePic.png"
+                alt="Clarence Sumagang - Software Engineer"
+                className="w-full h-full object-cover rounded-full shadow-2xl"
+                style={{
+                  boxShadow: "0 25px 50px -12px rgba(32, 197, 160, 0.5)",
+                  border: "4px solid #1e293b"
+                }}
+              />
+            </div>
           </div>
 
-          <div
-            className={`w-full lg:w-1/2 transition-all duration-700 ease-in-out text-center lg:text-left ${
-              inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 font-futuristic tracking-wider">
-              CLARENCE D. SUMAGANG
+          {/* Right Column: Text and Buttons (lg:col-span-7) */}
+          <div className={`lg:col-span-7 space-y-4 transition-all duration-700 ease-in-out lg:ml-auto lg:max-w-2xl ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}>
+            {/* Badge / Tag */}
+            <span className="inline-flex items-center rounded-full bg-accent-500 px-3 py-1 text-xs font-semibold text-gray-900 shadow-lg">
+              SOFTWARE ENGINEER
+            </span>
+
+            {/* Headline */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              I design, build, and ship reliable software
+              <span className="text-accent-500 block">end-to-end</span>
             </h1>
-            <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-primary-500 font-semibold mb-6 font-futuristic tracking-wider h-8 sm:h-10 lg:h-12">
-              {inView && (
-                <TypingAnimation
-                  text="ASPIRING FULL STACK WEB DEVELOPER"
-                  speed={100}
-                  delay={500}
-                />
-              )}
-            </h2>
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              A highly motivated IT fresh graduate seeking an entry-level
-              position where I can apply my knowledge and continuously develop
-              my skills within a professional environment.
+
+            {/* Description */}
+            <p className="text-sm md:text-base text-gray-300 max-w-xl">
+              Hi, I'm Clarence. An experienced <span className="font-bold text-white">Software Engineer from the Philippines</span>. I specialize in scalable web applications. I transform complex business requirements into elegant, high-performance solutions using modern technologies like React, Node.js, and cloud platforms.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-2">
+              {/* View Portfolio Button (Primary) */}
               <a
                 href="/projects"
-                className="px-6 sm:px-8 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded transition-all duration-300 hover-glow font-futuristic tracking-wider animate-fade delay-200 flex items-center justify-center text-sm sm:text-base no-underline hover:text-white"
+                className="flex items-center justify-center px-5 py-2.5 bg-accent-500 text-gray-900 font-semibold rounded-xl hover:bg-accent-600 transition duration-300 shadow-xl no-underline text-base"
               >
-                VIEW PROJECTS
+                <FaFolderOpen className="mr-2" size={18} />
+                View My Portfolio
               </a>
+
+              {/* Professional Experiences Button (Secondary) */}
               <button
                 onClick={toggleModal}
-                className="px-6 sm:px-8 py-3 border-2 border-primary-500 text-primary-500 hover:bg-primary-500/10 font-medium rounded transition-all duration-300 hover-glow font-futuristic tracking-wider animate-fade delay-300 flex items-center justify-center text-sm sm:text-base"
+                className="flex items-center justify-center px-5 py-2.5 border border-gray-600 text-white font-semibold rounded-xl hover:bg-gray-800 transition duration-300 text-base"
               >
-                REQUEST CV
+                <FaBriefcase className="mr-2" size={18} />
+                Professional Experiences
               </button>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Professional Experiences Modal */}
       {showModal && (
         <div
           className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-fade"
@@ -92,13 +101,10 @@ const Hero = () => {
               &times;
             </button>
             <h3 className="text-2xl font-bold text-primary-500 mb-4 font-futuristic tracking-wider">
-              RESUME REQUEST
+              PROFESSIONAL EXPERIENCES
             </h3>
             <p className="text-gray-300 mb-6">
-              To protect my personal information and ensure my resume is shared
-              responsibly, please use one of the contact options below to
-              request a copy. I will personally review all requests and send my
-              resume to serious inquiries. Thank you for understanding.
+              To learn more about my professional experiences and request my resume, please use one of the contact options below. I will personally review all requests and share my professional background with serious inquiries. Thank you for your interest.
             </p>
             <div className="space-y-3">
               {[
@@ -123,13 +129,13 @@ const Hero = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 bg-dark-700/50 hover:bg-primary-500 hover:text-white rounded transition-all hover-glow animate-fade no-underline"
+                  className="flex items-center gap-3 p-3 bg-dark-700/50 hover:bg-accent-500 hover:text-gray-900 rounded transition-all hover-glow animate-fade no-underline"
                   style={{ animationDelay: `${index * 100 + 200}ms` }}
                 >
-                  <span className="text-primary-500 group-hover:text-white transition-colors">
+                  <span className="text-accent-500 group-hover:text-gray-900 transition-colors">
                     {item.icon}
                   </span>
-                  <span className="text-gray-300 hover:text-white transition-colors">
+                  <span className="text-gray-300 hover:text-gray-900 transition-colors">
                     {item.label}
                   </span>
                 </a>
@@ -143,4 +149,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
