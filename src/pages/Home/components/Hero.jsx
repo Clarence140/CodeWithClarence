@@ -39,19 +39,18 @@ const Hero = () => {
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
             {/* Badge / Tag */}
-            <span className="inline-flex items-center rounded-full bg-accent-500 px-3 py-1 text-xs font-semibold text-gray-900 shadow-lg">
+            <span className="inline-flex items-center rounded-full bg-gradient-to-tr from-neon-lime to-electric-chartreuse px-3 py-1 text-xs font-semibold text-gray-900 shadow-lg">
               SOFTWARE ENGINEER
             </span>
 
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              I design, build, and ship reliable software
-              <span className="text-accent-500 block">end-to-end</span>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              I build modern, scalable software with <span className="bg-gradient-to-tr from-neon-lime to-electric-chartreuse bg-clip-text text-transparent">real-world impact</span>
             </h1>
 
             {/* Description */}
             <p className="text-sm md:text-base text-gray-300 max-w-xl">
-              Hi, I'm Clarence. An experienced <span className="font-bold text-white">Software Engineer from the Philippines</span>. I specialize in scalable web applications. I transform complex business requirements into elegant, high-performance solutions using modern technologies like React, Node.js, and cloud platforms.
+              Hi, I'm Clarence — a <span className="font-bold text-white">Junior Software Engineer from the Philippines</span>, currently creating practical and interactive applications at Inspire Global Inc. I enjoy turning ideas into functional digital experiences using technologies like React, Next.js, Tailwind, Node.js, and cloud tools. I'm focused on learning clean engineering practices, improving user interactions, and building software that is reliable, intuitive, and ready to scale as I grow my skills.
             </p>
 
             {/* Buttons */}
@@ -59,7 +58,7 @@ const Hero = () => {
               {/* View Portfolio Button (Primary) */}
               <a
                 href="/projects"
-                className="flex items-center justify-center px-5 py-2.5 bg-accent-500 text-gray-900 font-semibold rounded-xl hover:bg-accent-600 transition duration-300 shadow-xl no-underline text-base"
+                className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-gradient-to-tr from-neon-lime to-electric-chartreuse text-gray-900 font-semibold rounded-xl hover:from-neon-lime/90 hover:to-electric-chartreuse/90 hover:shadow-lg hover:shadow-neon-lime/30 hover:scale-105 transition-all duration-300 shadow-xl no-underline text-base"
               >
                 <FaFolderOpen className="mr-2" size={18} />
                 View My Portfolio
@@ -68,7 +67,7 @@ const Hero = () => {
               {/* Professional Experiences Button (Secondary) */}
               <button
                 onClick={toggleModal}
-                className="flex items-center justify-center px-5 py-2.5 border border-gray-600 text-white font-semibold rounded-xl hover:bg-gray-800 transition duration-300 text-base"
+                className="flex items-center justify-center w-full sm:w-auto px-6 py-3 border-2 border-electric-chartreuse text-electric-chartreuse font-semibold rounded-xl hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:text-gray-900 hover:shadow-lg hover:shadow-neon-lime/30 hover:scale-105 transition-all duration-300 text-base"
               >
                 <FaBriefcase className="mr-2" size={18} />
                 Professional Experiences
@@ -94,7 +93,7 @@ const Hero = () => {
             >
               &times;
             </button>
-            <h3 className="text-2xl font-bold text-primary-500 mb-4 font-futuristic tracking-wider">
+            <h3 className="text-2xl font-bold bg-gradient-to-tr from-neon-lime to-electric-chartreuse bg-clip-text text-transparent mb-4 font-futuristic tracking-wider">
               PROFESSIONAL EXPERIENCES
             </h3>
             <p className="text-gray-300 mb-6">

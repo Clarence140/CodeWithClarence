@@ -36,8 +36,8 @@ body {
 .hover-glow:hover {
   transform: translateY(-5px) scale(1.05);
   filter: brightness(120%);
-  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3), 0 0 20px rgba(255, 0, 0, 0.2);
-  border-color: rgba(255, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 255, 128, 0.3), 0 0 20px rgba(128, 255, 0, 0.2);
+  border-color: rgba(128, 255, 0, 0.5);
 }
 
 /* Hamburger Menu Animation */
@@ -63,12 +63,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff0000;
+  background: linear-gradient(to bottom, #80FF00, #00FF80);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #cc0000;
+  background: linear-gradient(to bottom, #00FF80, #80FF00);
 }
 
 /* Focus styles */

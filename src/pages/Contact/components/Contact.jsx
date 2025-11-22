@@ -133,7 +133,7 @@ const Contact = () => {
                 required
                 maxLength={50}
                 placeholder="Your name"
-                className="w-full px-4 py-3 bg-dark-700/50 border border-dark-600/50 rounded focus:outline-none focus:ring-2 focus:ring-primary-500 text-white placeholder-gray-400 transition-all"
+                className="w-full px-4 py-3 bg-dark-700/50 border border-dark-600/50 rounded focus:outline-none focus:ring-2 focus:ring-electric-chartreuse text-white placeholder-gray-400 transition-all"
               />
             </div>
 
@@ -153,7 +153,7 @@ const Contact = () => {
                 required
                 maxLength={100}
                 placeholder="example@example.com"
-                className="w-full px-4 py-3 bg-dark-700/50 border border-dark-600/50 rounded focus:outline-none focus:ring-2 focus:ring-primary-500 text-white placeholder-gray-400 transition-all"
+                className="w-full px-4 py-3 bg-dark-700/50 border border-dark-600/50 rounded focus:outline-none focus:ring-2 focus:ring-electric-chartreuse text-white placeholder-gray-400 transition-all"
               />
             </div>
 
@@ -173,7 +173,7 @@ const Contact = () => {
                 required
                 maxLength={500}
                 placeholder="Type your message here (max 500 characters)..."
-                className="w-full px-4 py-3 bg-dark-700/50 border border-dark-600/50 rounded focus:outline-none focus:ring-2 focus:ring-primary-500 text-white placeholder-gray-400 transition-all resize-none"
+                className="w-full px-4 py-3 bg-dark-700/50 border border-dark-600/50 rounded focus:outline-none focus:ring-2 focus:ring-electric-chartreuse text-white placeholder-gray-400 transition-all resize-none"
               />
               <div className="text-right text-sm text-gray-400 mt-1">
                 {charCount}/500 characters
@@ -186,7 +186,7 @@ const Contact = () => {
               className={`px-8 py-3 text-white font-medium rounded transition-all duration-300 font-futuristic tracking-wider flex items-center justify-center ${
                 isLoading
                   ? "bg-gray-600 cursor-not-allowed"
-                  : "bg-primary-500 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-500/20"
+                  : "bg-gradient-to-tr from-neon-lime to-electric-chartreuse hover:from-neon-lime/90 hover:to-electric-chartreuse/90 text-gray-900 font-semibold hover:shadow-lg hover:shadow-neon-lime/30"
               }`}
             >
               {isLoading ? (

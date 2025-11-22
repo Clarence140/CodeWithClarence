@@ -33,7 +33,7 @@ const TypingAnimation = ({ text, speed = 100, delay = 500 }) => {
   return (
     <span className="relative inline-block">
       {displayedText}
-      <span className="animate-pulse text-primary-500">|</span>
+      <span className="animate-pulse bg-gradient-to-tr from-neon-lime to-electric-chartreuse bg-clip-text text-transparent">|</span>
     </span>
   );
 };

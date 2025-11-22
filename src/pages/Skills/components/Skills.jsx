@@ -74,7 +74,7 @@ const Skills = () => {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="text-3xl sm:text-4xl lg:text-5xl text-primary-500 mb-2 sm:mb-3 transition-transform duration-300">
+              <div className="text-3xl sm:text-4xl lg:text-5xl bg-gradient-to-tr from-neon-lime to-electric-chartreuse bg-clip-text text-transparent mb-2 sm:mb-3 transition-transform duration-300">
                 {skill.icon}
               </div>
               <h3 className="text-sm sm:text-base lg:text-lg font-medium text-white font-futuristic tracking-wider text-center">

@@ -90,7 +90,7 @@ const Footer = () => {
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <span className="text-2xl mb-1 text-gray-300 group-hover:text-primary-500 transition-colors">
+                  <span className="text-2xl mb-1 text-gray-300 group-hover:bg-gradient-to-tr group-hover:from-neon-lime group-hover:to-electric-chartreuse group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                     {item.icon}
                   </span>
                   <span className="text-xs text-gray-400 group-hover:text-white transition-colors font-futuristic tracking-wider">
@@ -102,7 +102,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-primary-500 to-transparent my-6"></div>
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-electric-chartreuse to-transparent my-6"></div>
 
         <div
           className={`text-center text-gray-400 text-sm font-futuristic tracking-wider transition-all duration-700 ease-out ${

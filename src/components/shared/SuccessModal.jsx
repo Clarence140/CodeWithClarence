@@ -64,7 +64,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 font-futuristic tracking-wider"
+            className="px-6 py-3 bg-gradient-to-tr from-neon-lime to-electric-chartreuse hover:from-neon-lime/90 hover:to-electric-chartreuse/90 text-gray-900 font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-neon-lime/30 font-futuristic tracking-wider"
           >
             CLOSE
           </button>

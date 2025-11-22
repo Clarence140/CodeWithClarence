@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const AnimatedText = ({ text }) => {
   return (
-    <span className="text-xl font-bold font-futuristic text-white hover:text-primary-500 transition-colors duration-300 cursor-pointer">
+    <span className="text-xl font-bold font-futuristic text-white hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">
       {text}
     </span>
   );
@@ -87,7 +87,9 @@ const Navigation = () => {
             alt="Logo"
             className="w-10 h-10 rounded-full hover-glow"
           />
-          <AnimatedText text="CodeWithClarence" />
+          <span className="text-xl font-bold font-futuristic text-white hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">
+            CodeWithClarence
+          </span>
         </Link>
 
         <div
@@ -106,10 +108,10 @@ const Navigation = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`capitalize font-futuristic transition-colors duration-300 no-underline ${
+              className={`capitalize font-futuristic transition-all duration-300 no-underline ${
                 isActive(item.path)
-                  ? "text-primary-500"
-                  : "text-white hover:text-primary-500"
+                  ? "bg-gradient-to-tr from-neon-lime to-electric-chartreuse bg-clip-text text-transparent"
+                  : "text-white hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:bg-clip-text hover:text-transparent"
               }`}
               onClick={() => {
                 if (item.path === "/") {
@@ -135,10 +137,10 @@ const Navigation = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`block w-full text-left px-5 py-3 capitalize font-futuristic first:rounded-t-lg last:rounded-b-lg transition-colors duration-300 no-underline ${
+              className={`block w-full text-left px-5 py-3 capitalize font-futuristic first:rounded-t-lg last:rounded-b-lg transition-all duration-300 no-underline ${
                 isActive(item.path)
-                  ? "text-primary-500"
-                  : "text-white hover:text-primary-500"
+                  ? "bg-gradient-to-tr from-neon-lime to-electric-chartreuse bg-clip-text text-transparent"
+                  : "text-white hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:bg-clip-text hover:text-transparent"
               }`}
               onClick={() => {
                 if (item.path === "/") {

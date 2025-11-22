@@ -386,7 +386,7 @@ const Projects = () => {
                         key={dotIndex}
                         className={`w-3 h-3 rounded-full transition-all ${
                           activeImageIndex[project.id] === dotIndex
-                            ? "bg-primary-500 w-6"
+                            ? "bg-gradient-to-tr from-neon-lime to-electric-chartreuse w-6"
                             : "bg-dark-500/50 hover:bg-dark-400"
                         }`}
                         onClick={() =>
@@ -410,7 +410,7 @@ const Projects = () => {
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 sm:px-3 py-1 bg-primary-600/20 text-primary-400 rounded-full text-xs sm:text-sm font-medium"
+                        className="px-2 sm:px-3 py-1 bg-gradient-to-tr from-neon-lime/20 to-electric-chartreuse/20 text-electric-chartreuse rounded-full text-xs sm:text-sm font-medium border border-electric-chartreuse/30"
                       >
                         {tech}
                       </span>
@@ -425,7 +425,7 @@ const Projects = () => {
                   {project.liveLink && project.liveLink !== "#" && (
                     <a
                       href={project.liveLink}
-                      className="w-full sm:w-auto px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline hover:text-white"
+                      className="w-full sm:w-auto px-6 py-2 bg-gradient-to-tr from-neon-lime to-electric-chartreuse hover:from-neon-lime/90 hover:to-electric-chartreuse/90 text-gray-900 font-semibold rounded transition-all duration-300 hover:shadow-lg hover:shadow-neon-lime/30 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -435,7 +435,7 @@ const Projects = () => {
                   {project.liveLink === "#" && (
                     <a
                       href="#"
-                      className="w-full sm:w-auto px-6 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline hover:text-white"
+                      className="w-full sm:w-auto px-6 py-2 bg-gradient-to-tr from-neon-lime to-electric-chartreuse hover:from-neon-lime/90 hover:to-electric-chartreuse/90 text-gray-900 font-semibold rounded transition-all duration-300 hover:shadow-lg hover:shadow-neon-lime/30 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline"
                       onClick={(e) => e.preventDefault()}
                     >
                       LIVE PREVIEW
@@ -452,7 +452,7 @@ const Projects = () => {
                   {project.githubLink && project.githubLink !== "#" && (
                     <a
                       href={project.githubLink}
-                      className="w-full sm:w-auto px-6 py-2 border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white rounded transition-all duration-300 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline"
+                      className="w-full sm:w-auto px-6 py-2 border-2 border-electric-chartreuse text-electric-chartreuse hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:text-gray-900 rounded transition-all duration-300 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base no-underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -461,7 +461,7 @@ const Projects = () => {
                   )}
                   {project.githubLink === "#" && (
                     <button
-                      className="w-full sm:w-auto px-6 py-2 border-2 border-primary-500 text-primary-500 hover:bg-primary-500/10 rounded transition-all duration-300 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base"
+                      className="w-full sm:w-auto px-6 py-2 border-2 border-electric-chartreuse/50 text-electric-chartreuse/50 rounded transition-all duration-300 font-futuristic tracking-wider flex items-center justify-center text-sm sm:text-base cursor-not-allowed"
                       disabled
                     >
                       GITHUB REPO
@@ -490,7 +490,7 @@ const Projects = () => {
                 className={`px-4 py-2 rounded-lg font-futuristic tracking-wider transition-all duration-300 ${
                   currentPage === 1
                     ? "bg-dark-800/30 text-gray-600 cursor-not-allowed"
-                    : "bg-dark-800/50 text-gray-300 hover:bg-primary-500 hover:text-white border border-dark-700/50"
+                    : "bg-dark-800/50 text-gray-300 hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:text-gray-900 border border-dark-700/50"
                 }`}
               >
                 ← PREV
@@ -503,8 +503,8 @@ const Projects = () => {
                     onClick={() => handlePageChange(page)}
                     className={`px-5 py-2 rounded-lg font-futuristic tracking-wider transition-all duration-300 ${
                       currentPage === page
-                        ? "bg-primary-500 text-white shadow-lg shadow-primary-500/30 scale-110"
-                        : "bg-dark-800/50 text-gray-300 hover:bg-dark-700 hover:text-white border border-dark-700/50 hover:border-primary-500/50"
+                        ? "bg-gradient-to-tr from-neon-lime to-electric-chartreuse text-gray-900 font-semibold shadow-lg shadow-neon-lime/30 scale-110"
+                        : "bg-dark-800/50 text-gray-300 hover:bg-dark-700 hover:text-white border border-dark-700/50 hover:border-electric-chartreuse/50"
                     }`}
                   >
                     {page}
@@ -518,7 +518,7 @@ const Projects = () => {
                 className={`px-4 py-2 rounded-lg font-futuristic tracking-wider transition-all duration-300 ${
                   currentPage === totalPages
                     ? "bg-dark-800/30 text-gray-600 cursor-not-allowed"
-                    : "bg-dark-800/50 text-gray-300 hover:bg-primary-500 hover:text-white border border-dark-700/50"
+                    : "bg-dark-800/50 text-gray-300 hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:text-gray-900 border border-dark-700/50"
                 }`}
               >
                 NEXT →
@@ -540,7 +540,7 @@ const Projects = () => {
           onTouchEnd={handleTouchEnd}
         >
           <button
-            className="absolute top-6 right-6 text-white text-4xl z-10 hover:text-primary-500 transition-colors"
+            className="absolute top-6 right-6 text-white text-4xl z-10 hover:bg-gradient-to-tr hover:from-neon-lime hover:to-electric-chartreuse hover:bg-clip-text hover:text-transparent transition-all duration-300"
             onClick={closeModal}
           >
             &times;
