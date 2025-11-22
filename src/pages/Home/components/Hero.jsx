@@ -62,7 +62,7 @@ const Hero = () => {
 
             {/* Description */}
             <p className="text-sm md:text-base text-gray-300 max-w-xl">
-              Hi, I'm Clarence — a <span className="font-bold text-white">Software Engineer from the Philippines</span>, currently creating practical and interactive applications at Inspire Global Inc. I enjoy turning ideas into functional digital experiences using technologies like React, Next.js, Tailwind, Node.js, and cloud tools. I'm focused on learning clean engineering practices, improving user interactions, and building software that is reliable, intuitive, and ready to scale as I grow my skills.
+              Hi, I'm Clarence — a <span className="font-bold text-white">Software Engineer from the Philippines</span>, currently creating practical and interactive applications at <span className="font-bold text-white">Inspire Global Inc.</span> I enjoy turning ideas into functional digital experiences using technologies like React, Next.js, Tailwind, Node.js, and cloud tools. I'm focused on learning clean engineering practices, improving user interactions, and building software that is reliable, intuitive, and ready to scale as I grow my skills.
             </p>
 
             {/* Buttons */}
