@@ -23,21 +23,15 @@ const Hero = () => {
     >
       <div className="container mx-auto px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          {/* Left Column: Circular Image (lg:col-span-5) */}
-          <div className={`lg:col-span-5 flex justify-center lg:justify-start lg:items-start transition-all duration-700 ease-in-out ${
+          {/* Left Column: Image (lg:col-span-5) */}
+          <div className={`lg:col-span-5 flex justify-center lg:justify-start lg:items-start lg:-ml-4 transition-all duration-700 ease-in-out ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}>
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
-              <img
-                src="/Logos/ProfilePic.png"
-                alt="Clarence Sumagang - Software Engineer"
-                className="w-full h-full object-cover rounded-full shadow-2xl"
-                style={{
-                  boxShadow: "0 25px 50px -12px rgba(32, 197, 160, 0.5)",
-                  border: "4px solid #1e293b"
-                }}
-              />
-            </div>
+            <img
+              src="/Logos/ProfilePic.png"
+              alt="Clarence Sumagang - Software Engineer"
+              className="w-76 h-76 sm:w-88 sm:h-88 md:w-[26rem] md:h-[26rem] lg:w-[30rem] lg:h-[30rem] object-cover"
+            />
           </div>
 
           {/* Right Column: Text and Buttons (lg:col-span-7) */}
