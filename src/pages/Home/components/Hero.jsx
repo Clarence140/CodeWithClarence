@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaFacebook, FaLinkedin, FaGithub, FaBriefcase, FaFolderOpen } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
+import AuroraShader from "../../../components/shared/AuroraShader";
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
@@ -19,9 +20,20 @@ const Hero = () => {
     <section
       ref={ref}
       id="home"
-      className="min-h-screen flex items-center py-20 bg-dark-900"
+      className="relative min-h-screen flex items-center py-20 overflow-hidden"
     >
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+      {/* AuroraShader Background */}
+      <div className="absolute inset-0 bg-dark-900">
+        <AuroraShader
+          colorStops={["#00FF80", "#80FF00", "#00FF80"]}
+          amplitude={1.0}
+          blend={0.5}
+          speed={1.0}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="container mx-auto px-4 md:px-8 lg:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left Column: Image (lg:col-span-5) */}
           <div className={`lg:col-span-5 flex justify-center lg:justify-start lg:items-start lg:-ml-4 transition-all duration-700 ease-in-out ${
@@ -50,7 +62,7 @@ const Hero = () => {
 
             {/* Description */}
             <p className="text-sm md:text-base text-gray-300 max-w-xl">
-              Hi, I'm Clarence — a <span className="font-bold text-white">Junior Software Engineer from the Philippines</span>, currently creating practical and interactive applications at Inspire Global Inc. I enjoy turning ideas into functional digital experiences using technologies like React, Next.js, Tailwind, Node.js, and cloud tools. I'm focused on learning clean engineering practices, improving user interactions, and building software that is reliable, intuitive, and ready to scale as I grow my skills.
+              Hi, I'm Clarence — a <span className="font-bold text-white">Software Engineer from the Philippines</span>, currently creating practical and interactive applications at Inspire Global Inc. I enjoy turning ideas into functional digital experiences using technologies like React, Next.js, Tailwind, Node.js, and cloud tools. I'm focused on learning clean engineering practices, improving user interactions, and building software that is reliable, intuitive, and ready to scale as I grow my skills.
             </p>
 
             {/* Buttons */}

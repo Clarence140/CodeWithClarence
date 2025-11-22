@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="bg-dark-900 pt-12 sm:pt-16 pb-6 sm:pb-8 text-white"
+      className="bg-dark-900/90 backdrop-blur-md pt-12 sm:pt-16 pb-6 sm:pb-8 text-white"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 mobile-flex-col mobile-text-center">
